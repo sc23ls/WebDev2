@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Basket{% endblock %}
+
+{% block content %}
+<h1>Shopping Basket</h1>
+<ul class="list-group list-group-flush">
+{% for id, item in basket.items() %}
+<li class="list-group-item">
+    <p>{{item.title}}</p>
+    <p>Quantity: {{item.quantity}}</p>
+    <p>Price: £{{item.quantity * item.price}}0</p>
+    <button class='close' onclick="fetch('/delete_from_basket/{{id}}', {method:'DELETE'}).then(location.reload())">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</li>
+{% endfor %}
+</ul>
+<h3>Total Cost: £{{total}}0</h3>
+<a class="btn btn-outline-success" href="/checkout">Checkout</a>
+{% endblock %}

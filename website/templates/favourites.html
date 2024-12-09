@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Favourites{% endblock %}
+
+{% block content %}
+<h1>My Favourites</h1>
+<div>
+    {% for favourite in products %}
+        <div>
+            <h4>{{favourite.title}}</h4>
+            <a class="btn btn-outline-success" href="{{ url_for('item_detail', product_id=favourite.id) }}">View Details</a>
+            <a class="btn btn-outline-danger favourite-button" data-product-id='{{favourite.id}}'>Remove from favourites</a>
+        </div>
+        <br>
+    {% endfor %}
+</div>
+{% endblock %}

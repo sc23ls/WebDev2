@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+{% block title %}Product Info{% endblock %} 
+{% block content %}
+<h1>Item Details: {{ item.title }}</h1>
+<a class="btn btn-outline-warning" href="{{ url_for('all_items') }}">Back to All Items</a>
+<br>
+<img src="{{ item.image_path() }}" alt="{{ item.name }}" width="300" />
+<h4>Description: {{ item.description }}</h4>
+<p>Price: £{{ item.price }}0</p>
+<a class="btn btn-outline-danger favourite-button" data-product-id="{{ item.id }}">Favourite</a>
+<a class="btn btn-outline-success" onclick="fetch('/add_to_basket/{{item.id}}', {method:'POST'}).then(window.alert('Added item to basket'))">Add to Basket</a>
+<h5 id="favourites-{{ item.id }}">{{ item.favourites_count }} people have favourited this item!</h5>
+
+{% endblock %}

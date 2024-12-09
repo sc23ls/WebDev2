@@ -1,0 +1,15 @@
+{% extends "base.html" %} 
+{% block title %}Order Details{% endblock %}
+{% block content %} 
+<h1>Order Details</h1>
+<p>Date ordered: {{ order.created|format_date }}</p>
+
+<h5>Items purchased:</h5>
+{% for product in products %}
+    <div>
+        {{product[0].title}} (Qty: {{product[1]}})
+    </div>
+{% endfor %}
+<p>Total Cost: £{{order.total_cost}}0</p>
+{% endblock %}
+    

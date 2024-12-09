@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+
+{% block title %}Home{% endblock %} 
+
+
+{% block content %}
+<h1>Browse Store</h1>
+<p><a href="/sign-up">Sign up or log in to view more details and place orders.</a></p>
+<div class="row row-cols-3">
+    {% for product in products %}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ product.image_path() }}" alt="{{ product.title }}">
+            <div class="card-body">
+                <h3 class="card-title">{{ product.title }}</h3>
+                <p class="card-text">{{ product.description }}</p>
+                <h5 class="card-text">Price: £{{ product.price }}0</h5>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    
+{% endblock %}

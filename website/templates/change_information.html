@@ -1,0 +1,55 @@
+{% extends "base.html" %} 
+
+{% block title %}Change Information{% endblock %} 
+
+{% block content %}
+    <form method="POST">
+      <h1 class="text-dark">Edit Account Information</h1>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          value="{{ UserID.name }}"
+          placeholder="John Doe"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          name="email"
+          value="{{ UserID.email }}"
+          placeholder="example@123.com"
+        />
+      </div>
+      <div class="form-group">
+        <label for="shipping_address">Shipping Address</label>
+        <input
+          type="text"
+          class="form-control"
+          id="shipping_address"
+          name="shipping_address"
+          value="{{ UserID.shipping_address }}"
+          placeholder="15 University Place, LS2 1ET"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="text"
+          class="form-control"
+          id="password"
+          name="password"
+          value="{{ UserID.password }}"
+          placeholder="Strong Password"
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    {% endblock %}
+    
